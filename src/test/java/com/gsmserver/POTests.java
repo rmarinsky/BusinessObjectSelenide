@@ -47,6 +47,7 @@ public class POTests extends BaseTest{
         new ProductList().clickToWishListProduct(testProductId);
         new LoginPopup().fillLoginForm("qazx","1111").submitForm();
         new WishListPage().isLoaded().wishListShouldHaveProduct(testProductId);
+
     }
 
 }

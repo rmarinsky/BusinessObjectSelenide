@@ -16,4 +16,8 @@ public class WishListPage {
         $(by("data-product-id",""+productId)).shouldBe(Condition.visible);
     }
 
+    public void clickOnRemoveProductFromWishList(){
+        $(by("href*","/account/wishlist/remove/")).click();
+    }
+
 }
