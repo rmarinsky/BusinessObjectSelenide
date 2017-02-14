@@ -12,8 +12,9 @@ public class WishListPage {
         return this;
     }
 
-    public void wishListShouldHaveProduct(Integer productId){
+    public WishListPage wishListShouldHaveProduct(Integer productId){
         $(by("data-product-id",""+productId)).shouldBe(Condition.visible);
+        return this;
     }
 
     public void clickOnRemoveProductFromWishList(){

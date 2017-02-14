@@ -8,7 +8,7 @@ import template.pageObjects.checkout.CheckoutContactInfo;
 import template.pageObjects.checkout.CheckoutDelivery;
 import template.pageObjects.checkout.CheckoutPayment;
 
-public class POTests extends BaseTest{
+public class PresentationTests extends BaseTest{
 
     private String testValue = "testValue";
     private Integer testProductId = 7462;
@@ -23,17 +23,24 @@ public class POTests extends BaseTest{
                 selectCountry("Sweden").fillCity(testValue).
                 fillAddress(testValue).submitContactInfo();
 
-        new CheckoutDelivery().selectDeliveryServiceById(2045558838).submitDeliveryChoose();
+        new CheckoutDelivery().
+                selectDeliveryServiceById(2045558838).
+                submitDeliveryChoose();
 
-        new CheckoutPayment().selectPaymentServiceById(2032449552).submitDeliveryChoose();
+        new CheckoutPayment().
+                selectPaymentServiceById(2032449552).
+                submitDeliveryChoose();
 
-        new CheckoutConfirmation().submitCheckout();
+        new CheckoutConfirmation().
+                submitCheckout();
     }
 
     @Test
     public void registerNewAccountTest(){
-        new HomePage().open().clickLoginLink();
-        new RegistrationPopup().clickOnTabRegistration().
+        new HomePage().open().
+                clickLoginLink();
+        new RegistrationPopup().
+                clickOnTabRegistration().
                 fillFirstNameField(testValue).
                 fillLoginField(testValue+ RandomUtils.nextInt(0, 500)).
                 fillEmailField(testValue+ RandomUtils.nextInt(0, 500) + "@gmail.com").
@@ -43,11 +50,16 @@ public class POTests extends BaseTest{
 
     @Test
     public void addToWishListProductTest(){
-        new HomePage().open().searchFor(""+testProductId);
-        new ProductList().clickToWishListProduct(testProductId);
-        new LoginPopup().fillLoginForm("qazx","1111").submitForm();
-        new WishListPage().isLoaded().wishListShouldHaveProduct(testProductId);
-
+        new HomePage().open().
+                searchFor(""+testProductId);
+        new ProductList().
+                clickToWishListProduct(testProductId);
+        new LoginPopup().
+                fillLoginForm("qazx","1111").
+                submitForm();
+        new WishListPage().isLoaded().
+                wishListShouldHaveProduct(testProductId).
+                clickOnRemoveProductFromWishList();
     }
 
 }
