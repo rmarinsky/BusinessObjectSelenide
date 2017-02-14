@@ -1,6 +1,5 @@
 package com.gsmserver;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.junit.TextReport;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
@@ -17,12 +16,6 @@ public abstract class BaseTest {
 
     @Rule
     public TextReport textReport = new TextReport();
-
-    static{
-        Configuration.browser = WebDriverRunner.CHROME;
-        Configuration.baseUrl = "https://gsmserver.com";
-        Configuration.pollingInterval = 25;
-    }
 
     @After
     public void after(){

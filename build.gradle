@@ -14,3 +14,23 @@ dependencies {
     compile 'io.github.bonigarcia:webdrivermanager:+'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+tasks.withType(Test) {
+    testTask ->
+        testTask.useJUnit()
+        testTask.reports.junitXml.enabled = false
+        testTask.reports.html.enabled = false
+        testTask.systemProperties(
+                'file.encoding':            'UTF-8',
+                'selenide.start.maximized': true,
+                'selenide.savePageSource':  false,
+                'selenide.timeout':         3000,
+                'selenide.browser':         'chrome',
+                'selenide.baseUrl':         'https://gsmserver.com',
+                'selenide.fileDownload':    'HTTPGET',
+                'selenide.screenshots':     false,
+                'selenide.fastSetValue':    false,
+                'selenide.pollingInterval': 25,
+                'selenide.collectionsPollingInterval': 25
+        )
+}
