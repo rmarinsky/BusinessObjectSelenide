@@ -5,9 +5,14 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CheckoutDelivery {
 
-    public CheckoutDelivery selectDeliveryServiceById(Integer deliveryServiceId){
+    private Integer deliveryServiceId;
+
+    public CheckoutDelivery(Integer deliveryServiceId) {
+        this.deliveryServiceId = deliveryServiceId;
+    }
+
+    public void selectDeliveryServiceById(){
         $(by("data-sm-target*",""+deliveryServiceId)).click();
-        return this;
     }
 
     public void submitDeliveryChoose(){

@@ -7,30 +7,21 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationPopup {
 
-    public RegistrationPopup clickOnTabRegistration(){
-        $(by("href*","signup")).click();
-        return this;
-    }
-
-    public RegistrationPopup fillFirstNameField(String firstName){
+    public void fillFirstNameField(String firstName){
         $(by("name*","firstName")).setValue(firstName);
-        return this;
     }
 
-    public RegistrationPopup fillLoginField(String login){
+    public void fillLoginField(String login){
         $(by("name*","username")).setValue(login);
-        return this;
     }
 
-    public RegistrationPopup fillEmailField(String email){
+    public void fillEmailField(String email){
         $(by("name*","email")).setValue(email);
-        return this;
     }
 
-    public RegistrationPopup selectCountry(String country){
+    public void selectCountry(String country){
         $("#country_id_chosen").click();
         $("#country_id_chosen input").sendKeys(country, Keys.ENTER);
-        return this;
     }
 
     public void submitRegisterForm(){

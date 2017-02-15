@@ -5,9 +5,14 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CheckoutPayment {
 
-    public CheckoutPayment selectPaymentServiceById(Integer paymentServiceId){
+    private Integer paymentServiceId;
+
+    public CheckoutPayment(Integer paymentServiceId) {
+        this.paymentServiceId = paymentServiceId;
+    }
+
+    public void selectPaymentServiceById(){
         $(by("data-sm-target*",""+paymentServiceId)).click();
-        return this;
     }
 
     public void submitDeliveryChoose(){

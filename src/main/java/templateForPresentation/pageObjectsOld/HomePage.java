@@ -7,19 +7,20 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class HomePage {
 
-    public HomePage open(){
+    public void open(){
         Selenide.open("");
-        return this;
     }
 
-    public HomePage clickLoginLink(){
+    public void clickLoginLink(){
         $(".login").click();
-        return this;
     }
 
-    public HomePage searchFor(String query){
+    public void fillSearchField(String query){
         $(By.name("q")).setValue(query);
-        $(".search-input-submit").click();
-        return this;
     }
+
+    public void submitSearch(){
+        $(".search-input-submit").click();
+    }
+
 }

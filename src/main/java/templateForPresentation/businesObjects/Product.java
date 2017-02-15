@@ -1,4 +1,4 @@
-package templateForPresentation.businesObject;
+package templateForPresentation.businesObjects;
 
 import com.codeborne.selenide.SelenideElement;
 import utils.JSExecutor;

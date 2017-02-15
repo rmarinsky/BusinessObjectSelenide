@@ -1,6 +1,6 @@
 package templateForPresentation.pageObjectsNew;
 
-import templateForPresentation.businesObject.User;
+import templateForPresentation.businesObjects.User;
 
 import static com.codeborne.selenide.Selenide.$;
 

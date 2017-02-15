@@ -1,6 +1,7 @@
 package templateForPresentation.pageObjectsOld;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.Selenide.$;
@@ -12,9 +13,8 @@ public class WishListPage {
         return this;
     }
 
-    public WishListPage wishListShouldHaveProduct(Integer productId){
-        $(by("data-product-id",""+productId)).shouldBe(Condition.visible);
-        return this;
+    public SelenideElement getProductById(Integer productId){
+        return $(by("data-product-id",""+productId));
     }
 
     public void clickOnRemoveProductFromWishList(){

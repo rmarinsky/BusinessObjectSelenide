@@ -1,5 +1,6 @@
 package com.gsmserver;
 
+import com.codeborne.selenide.Condition;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 import templateForPresentation.pageObjectsOld.*;
@@ -15,51 +16,64 @@ public class PresentationTests extends BaseTest{
 
     @Test
     public void makeOrderTest(){
-        new ProductPage().open(testProductId)
-                .clickAddToCart(testProductId);
-        new CheckoutContactInfo().openCheckout().fillFirstName(testValue).fillLastName(testValue).
-                fillEmail(testValue+"@test.com").
-                fillPhoneNumber("112223333").
-                selectCountry("Sweden").fillCity(testValue).
-                fillAddress(testValue).submitContactInfo();
+        ProductPage productPage = new ProductPage(testProductId);
+        productPage.open();
+        productPage.clickAddToCart();
 
-        new CheckoutDelivery().
-                selectDeliveryServiceById(2045558838).
-                submitDeliveryChoose();
+        CheckoutContactInfo checkoutContactInfo = new CheckoutContactInfo();
+        checkoutContactInfo.openCheckout();
+        checkoutContactInfo.fillFirstName(testValue);
+        checkoutContactInfo.fillLastName(testValue);
+        checkoutContactInfo.fillEmail(testValue+"@test.com");
+        checkoutContactInfo.fillPhoneNumber("112223333");
+        checkoutContactInfo.selectCountry("Sweden");
+        checkoutContactInfo.fillCity(testValue);
+        checkoutContactInfo.fillAddress(testValue);
+        checkoutContactInfo.submitContactInfo();
 
-        new CheckoutPayment().
-                selectPaymentServiceById(2032449552).
-                submitDeliveryChoose();
+        CheckoutDelivery checkoutDelivery =new CheckoutDelivery(2045558838);
+        checkoutDelivery.selectDeliveryServiceById();
+        checkoutDelivery.submitDeliveryChoose();
 
-        new CheckoutConfirmation().
-                submitCheckout();
+        CheckoutPayment checkoutPayment = new CheckoutPayment(2032449552);
+        checkoutPayment.selectPaymentServiceById();
+        checkoutPayment.submitDeliveryChoose();
+
+        new CheckoutConfirmation().submitCheckout();
     }
 
     @Test
     public void registerNewAccountTest(){
-        new HomePage().open().
-                clickLoginLink();
-        new RegistrationPopup().
-                clickOnTabRegistration().
-                fillFirstNameField(testValue).
-                fillLoginField(testValue+ RandomUtils.nextInt(0, 500)).
-                fillEmailField(testValue+ RandomUtils.nextInt(0, 500) + "@gmail.com").
-                selectCountry("Sweden").
-                submitRegisterForm();
+        HomePage homePage = new HomePage();
+        homePage.open();
+        homePage.clickLoginLink();
+
+        RegistrationPopup registrationPopup = new LoginPopup().clickOnTabRegistration();
+        registrationPopup.fillFirstNameField(testValue);
+        registrationPopup.fillLoginField(testValue+ RandomUtils.nextInt(0, 500));
+        registrationPopup.fillEmailField(testValue+ RandomUtils.nextInt(0, 500) + "@gmail.com");
+        registrationPopup.selectCountry("Sweden");
+        registrationPopup.submitRegisterForm();
     }
 
     @Test
     public void addToWishListProductTest(){
-        new HomePage().open().
-                searchFor(""+testProductId);
-        new ProductList().
-                clickToWishListProduct(testProductId);
-        new LoginPopup().
-                fillLoginForm("qazx","1111").
-                submitForm();
-        new WishListPage().isLoaded().
-                wishListShouldHaveProduct(testProductId).
-                clickOnRemoveProductFromWishList();
+        HomePage homePage = new HomePage();
+        homePage.open();
+        homePage.fillSearchField(""+testProductId);
+        homePage.submitSearch();
+
+        ProductList productList = new ProductList();
+        productList.clickToWishListProduct(testProductId);
+
+        LoginPopup loginPopup = new LoginPopup();
+        loginPopup.fillLoginField("qazx");
+        loginPopup.fillPaswField("1111");
+        loginPopup.submitForm();
+
+        WishListPage wishList = new WishListPage().isLoaded();
+        wishList.getProductById(testProductId).shouldBe(Condition.visible);
+        wishList.clickOnRemoveProductFromWishList();
     }
 
 }
