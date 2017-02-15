@@ -1,4 +1,4 @@
-package template.pageObjects;
+package templateForPresentation.pageObjectsOld;
 
 import org.openqa.selenium.Keys;
 

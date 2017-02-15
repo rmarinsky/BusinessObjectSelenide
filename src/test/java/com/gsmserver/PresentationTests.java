@@ -2,11 +2,11 @@ package com.gsmserver;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
-import template.pageObjects.*;
-import template.pageObjects.checkout.CheckoutConfirmation;
-import template.pageObjects.checkout.CheckoutContactInfo;
-import template.pageObjects.checkout.CheckoutDelivery;
-import template.pageObjects.checkout.CheckoutPayment;
+import templateForPresentation.pageObjectsOld.*;
+import templateForPresentation.pageObjectsOld.checkout.CheckoutConfirmation;
+import templateForPresentation.pageObjectsOld.checkout.CheckoutContactInfo;
+import templateForPresentation.pageObjectsOld.checkout.CheckoutDelivery;
+import templateForPresentation.pageObjectsOld.checkout.CheckoutPayment;
 
 public class PresentationTests extends BaseTest{
 

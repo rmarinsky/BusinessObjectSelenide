@@ -1,4 +1,4 @@
-package template.pageObjects.checkout;
+package templateForPresentation.pageObjectsOld.checkout;
 
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.Keys;

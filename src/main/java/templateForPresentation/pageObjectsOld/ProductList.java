@@ -1,4 +1,4 @@
-package template.pageObjects;
+package templateForPresentation.pageObjectsOld;
 
 import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.Selenide.$;

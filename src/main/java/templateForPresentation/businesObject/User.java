@@ -1,4 +1,4 @@
-package template.businesObject;
+package templateForPresentation.businesObject;
 
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
@@ -59,15 +59,15 @@ public class User {
         return this;
     }
 
-    public User chooseCountry(String countryValue){
+    public User selectCountry(String countryValue){
         return this.chooseCustom(CUSTOM_COUNTRY, countryValue);
     }
 
-    public User chooseRegion(String regionValue){
+    public User selectRegion(String regionValue){
         return this.chooseCustom(CUSTOM_REGION, regionValue);
     }
 
-    public User chooseCity(String cityValue){
+    public User selectCity(String cityValue){
         return this.chooseCustom(CUSTOM_CITY, cityValue);
     }
 

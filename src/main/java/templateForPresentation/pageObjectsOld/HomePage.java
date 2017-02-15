@@ -1,4 +1,4 @@
-package template.pageObjects;
+package templateForPresentation.pageObjectsOld;
 
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
