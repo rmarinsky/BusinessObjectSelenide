@@ -1,19 +1,14 @@
-package templateForPresentation.pageObjectsOld.checkout;
+package templateForPresentation.componentObjectsNew.checkout;
 
 import com.codeborne.selenide.Selenide;
 
 import static com.codeborne.selenide.Selectors.by;
 
-public class CheckoutPayment {
+public class PaymentService {
 
-    private Integer paymentServiceId;
-
-    public CheckoutPayment(Integer paymentServiceId) {
-        this.paymentServiceId = paymentServiceId;
-    }
-
-    public void selectPaymentServiceById(){
+    public PaymentService selectPaymentServiceById(Integer paymentServiceId){
         Selenide.$(by("data-sm-target*", String.valueOf(paymentServiceId))).click();
+        return this;
     }
 
     public void submitDeliveryChoose(){

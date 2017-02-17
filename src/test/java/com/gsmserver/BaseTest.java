@@ -9,6 +9,11 @@ import org.junit.Rule;
 
 public abstract class BaseTest {
 
+    final String TEST_VALUE = "testValue";
+    final Integer TEST_PRODUCT_ID = 7462,
+            DELIVERY_SERVICE_ID = 2045558838,
+            PAYMENT_SERVICE_ID = 2032449552;
+
     @BeforeClass
     public static void beforeCLass(){
         ChromeDriverManager.getInstance().setup();

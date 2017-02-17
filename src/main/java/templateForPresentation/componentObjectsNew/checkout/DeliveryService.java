@@ -1,19 +1,14 @@
-package templateForPresentation.pageObjectsOld.checkout;
+package templateForPresentation.componentObjectsNew.checkout;
 
 import com.codeborne.selenide.Selenide;
 
 import static com.codeborne.selenide.Selectors.by;
 
-public class CheckoutDelivery {
+public class DeliveryService {
 
-    private Integer deliveryServiceId;
-
-    public CheckoutDelivery(Integer deliveryServiceId) {
-        this.deliveryServiceId = deliveryServiceId;
-    }
-
-    public void selectDeliveryServiceById(){
+    public DeliveryService selectDeliveryServiceById(Integer deliveryServiceId){
         Selenide.$(by("data-sm-target*", String.valueOf(deliveryServiceId))).click();
+        return this;
     }
 
     public void submitDeliveryChoose(){

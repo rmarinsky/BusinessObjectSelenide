@@ -73,7 +73,7 @@ public class User {
 
     private User chooseCustom(final By customElement, final String value){
         $(customElement).shouldBe(Condition.visible).click();
-        $(customElement + " input").sendKeys(value + Keys.ENTER);
+        $(customElement).$("input").sendKeys(value + Keys.ENTER);
         return this;
     }
 

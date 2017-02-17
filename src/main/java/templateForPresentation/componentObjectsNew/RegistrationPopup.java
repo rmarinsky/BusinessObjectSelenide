@@ -1,4 +1,4 @@
-package templateForPresentation.pageObjectsNew;
+package templateForPresentation.componentObjectsNew;
 
 import templateForPresentation.businesObjects.User;
 
@@ -8,12 +8,12 @@ public class RegistrationPopup {
 
     private User user;
 
-    RegistrationPopup(){
+    public RegistrationPopup(){
         this.user = new User();
     }
 
     public void registerNewUser(String firstNameValue, String loginValue, String emailValue, String country){
-        user.fillFirstName(firstNameValue).
+        this.user.fillFirstName(firstNameValue).
                 fillLogin(loginValue).
                 fillEmail(emailValue).
                 selectCountry(country);

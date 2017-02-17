@@ -1,4 +1,4 @@
-package templateForPresentation.pageObjectsOld.checkout;
+package templateForPresentation.componentObjectsNew.checkout;
 
 import com.codeborne.selenide.Selenide;
 

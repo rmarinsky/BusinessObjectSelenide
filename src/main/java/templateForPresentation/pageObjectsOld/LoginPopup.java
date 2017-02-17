@@ -1,26 +1,27 @@
 package templateForPresentation.pageObjectsOld;
 
+import com.codeborne.selenide.Selenide;
+
 import static com.codeborne.selenide.Selectors.by;
-import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPopup {
 
     public RegistrationPopup clickOnTabRegistration(){
-        $(by("href*","signup")).click();
+        Selenide.$(by("href*","signup")).click();
         return new RegistrationPopup();
     }
 
     //qazx, 1111
     public void fillLoginField(String loginValue){
-        $(by("name*","username")).setValue(loginValue);
+        Selenide.$(by("name*","username")).setValue(loginValue);
     }
 
     public void fillPaswField(String pasw){
-        $(by("name*","password")).setValue(pasw);
+        Selenide.$(by("name*","password")).setValue(pasw);
     }
 
     public void submitForm(){
-        $("[type='submit']").click();
+        Selenide.$("[type='submit']").click();
     }
 
 }

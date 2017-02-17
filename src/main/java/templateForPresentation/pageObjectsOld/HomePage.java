@@ -12,15 +12,15 @@ public class HomePage {
     }
 
     public void clickLoginLink(){
-        $(".login").click();
+        Selenide.$(".login").click();
     }
 
     public void fillSearchField(String query){
-        $(By.name("q")).setValue(query);
+        Selenide.$(By.name("q")).setValue(query);
     }
 
     public void submitSearch(){
-        $(".search-input-submit").click();
+        Selenide.$(".search-input-submit").click();
     }
 
 }

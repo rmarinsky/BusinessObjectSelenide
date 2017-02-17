@@ -1,5 +1,7 @@
 package templateForPresentation.businesObjects;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import utils.JSExecutor;
 
@@ -8,21 +10,29 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class Product {
 
-    public SelenideElement findProductById(Integer productId){
-        return $(by("data-product-id",""+productId));
+    public static SelenideElement findProduct(Integer productId){
+        return $(by("data-product-id", String.valueOf(productId)));
     }
 
-    public Product addProductToCartViaJS(final Integer productId, Integer count){
-        new JSExecutor().GETWithParam("/ajax/cart/add/"+ productId, String.valueOf(count));
+    public Product openProductPage(Integer productId){
+        Selenide.open("/item/" + String.valueOf(productId));
         return this;
     }
 
-    public void addToCartProduct(Integer productId){
-        this.findProductById(productId).$(by("data-action-click", "site.cart.add")).click();
+    public Product addToCartProduct(Integer productId){
+        Product.findProduct(productId).$(by("data-action-click", "site.cart.add")).click();
+        Product.findProduct(productId).$(by("data-action-click", "site.cart.add")).shouldBe(Condition.hidden);
+        return this;
     }
 
-    public void addToWishListProduct(Integer productId){
-        this.findProductById(productId).$(".ga-add-to-wishlist").click();
+    public Product addToWishListProduct(Integer productId){
+        Product.findProduct(productId).$(".ga-add-to-wishlist").click();
+        return this;
+    }
+
+    public Product addProductToCartViaJS(final Integer productId, Integer count){
+        new JSExecutor().GETWithParam("/ajax/cart/add/"+ String.valueOf(productId), String.valueOf(count));
+        return this;
     }
 
 }
