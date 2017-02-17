@@ -1,11 +1,9 @@
 package com.gsmserver;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 import templateForPresentation.pageObjectsOld.*;
-import templateForPresentation.pageObjectsOld.checkout.CheckoutConfirmation;
 import templateForPresentation.pageObjectsOld.checkout.CheckoutContactInfo;
 import templateForPresentation.pageObjectsOld.checkout.CheckoutDelivery;
 import templateForPresentation.pageObjectsOld.checkout.CheckoutPayment;
@@ -39,8 +37,8 @@ public class VoidPOTests extends BaseTest{
         checkoutPayment.selectPaymentServiceById();
         checkoutPayment.submitDeliveryChoose();
 
-        new CheckoutConfirmation().submitCheckout();
-        Selenide.$("[data-order-id]").waitUntil(Condition.visible, 15000);
+        /*new CheckoutConfirmation().submitCheckout();
+        Selenide.$("[data-order-id]").waitUntil(Condition.visible, 15000);*/
     }
 
     @Test
